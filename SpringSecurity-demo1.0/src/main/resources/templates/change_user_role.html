@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>设置权限页面</title>
+
+    <link rel="stylesheet" th:href="@{../static/css/layui.css}" />
+    <link rel="stylesheet" th:href="@{../static/css/style.css}" />
+    <script th:src="@{../static/js/jquery.min.js}"></script>
+    <script th:src="@{../static/js/layui.js}"></script>
+
+</head>
+<body>
+<!--弹出层更改用户权限页面-->
+<input id="id" class="hide" style="display: none"/>
+
+<!--<div class="layui-inline" style="width: 85%">-->
+    <button id="setAdmin"  class="layui-btn">设置该用户为管理员</button>
+<!--</div>-->
+
+<!--<div class="layui-inline" style="width: 85%">-->
+    <button id="setUser"  class="layui-btn layui-btn-normal" >设置该用户为普通用户</button>
+<!--</div>-->
+
+
+
+
+
+<script>
+    layui.use(["form","table","element"], function(){
+        var $ = layui.jquery;
+        var element = layui.element;
+        var table = layui.table;
+        var form = layui.form;
+        var id =  $("#id").val();
+        $("#setAdmin").click(function () {
+            $.ajax({
+                url:'/setUserAdmin',//更改用户为管理员请求
+                type:'post',
+                dataType:'json',
+                data:{
+                    id:id
+                },
+                success:function(data){
+                    if (data.code == 200){
+                        layer.alert("更新成功！",function(){
+                            window.parent.location.reload();//刷新父页面
+                            parent.layer.close(index);//关闭弹出层
+                        });
+                    }else {
+                        layer.alert("您无权限更改");
+                        parent.layer.close(index);//关闭弹出层
+                    }
+                }
+            });
+        });
+
+        $("#setUser").click(function () {
+            $.ajax({
+                url:'/setUser',//更改用户为普通用户请求
+                type:'post',
+                dataType:'json',
+                data:{
+                    id:id
+                },
+                success:function(data){
+                    if (data.code == 200){
+                        layer.alert("更新成功");
+                        parent.layer.close(index);//关闭弹出层
+                    }else {
+                        layer.alert("您无权限更改");
+                        parent.layer.close(index);//关闭弹出层
+                    }
+                }
+            });
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

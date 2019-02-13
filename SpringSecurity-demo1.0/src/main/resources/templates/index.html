@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>主页</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--<link rel="stylesheet" th:href="@{../static/css/bootstrap.css}" />-->
+    <!--<link rel="stylesheet" th:href="@{../static/css/bootstrapValidator.css}" />-->
+    <link rel="stylesheet" th:href="@{../static/css/layui.css}" />
+    <script th:src="@{../static/js/jquery.min.js}"></script>
+    <script th:src="@{../static/js/layui.js}"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">权限管理Demo</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;" sec:authentication="name">//获取登录用户名字
+
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a id="logout">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a  class="" href="javascript:;">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd id="display-users"><a href="javascript:;">用户列表</a></dd>
+                        <dd id="display-login-log"><a href="javascript:;">登录日志记录</a></dd>
+                        <dd id="display-register-log"><a href="javascript:;">注册日志记录</a></dd>
+                        <dd id="display-user-log"><a href="javascript:;">用户信息修改日志记录</a></dd>
+                    </dl>
+                </li>
+                <!--<li class="layui-nav-item">-->
+                <!--<a href="javascript:;">解决方案</a>-->
+                <!--<dl class="layui-nav-child">-->
+                <!--<dd><a href="javascript:;">列表一</a></dd>-->
+                <!--<dd><a href="javascript:;">列表二</a></dd>-->
+                <!--<dd><a href="">超链接</a></dd>-->
+                <!--</dl>-->
+                <!--</li>-->
+                <!--<li class="layui-nav-item"><a href="">云市场</a></li>-->
+                <!--<li class="layui-nav-item"><a href="">发布商品</a></li>-->
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="1" class="layui-body" >
+        <table class="layui-hide" id="test" lay-filter="test"></table>
+
+    </div>
+
+
+
+
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+
+
+        <a class="layui-btn layui-btn-xs" lay-event="getInfo" >查看</a>
+
+        <a class="layui-btn layui-btn-xs" lay-event="edit" >设置权限</a>
+
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+
+
+
+
+</script>
+
+
+
+
+<script th:src="@{../static/my_js/displayUser.js}"></script>
+<script th:src="@{../static/my_js/logout.js}"></script>
+
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+
+
+
+
+</body>
+</html>

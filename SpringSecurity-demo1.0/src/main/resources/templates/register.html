@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" th:href="@{../static/css/layui.css}" />
+    <link rel="stylesheet" th:href="@{../static/css/style.css}" />
+    <script th:src="@{../static/js/jquery.min.js}"></script>
+    <script th:src="@{../static/js/layui.js}"></script>
+</head>
+<body>
+<div class="login-main">
+    <header class="layui-elip" style="width: 82%">注册页</header>
+
+    <!-- 表单选项 -->
+    <form class="layui-form">
+        <div class="layui-input-inline">
+            <!-- 用户名 -->
+            <div class="layui-inline" style="width: 85%">
+                <input type="text" id="username" name="username" required=""  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input"/>
+            </div>
+            <!-- 对号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="ri" style="color: green;font-weight: bolder;" hidden=""></i>
+            </div>
+            <!-- 错号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="wr" style="color: red; font-weight: bolder;" hidden="">ဆ</i>
+            </div>
+        </div>
+        <!-- 密码 -->
+        <div class="layui-input-inline">
+            <div class="layui-inline" style="width: 85%">
+                <input type="password" id="password" name="password" required=""  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" />
+            </div>
+            <!-- 对号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="pri" style="color: green;font-weight: bolder;" hidden=""></i>
+            </div>
+            <!-- 错号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="pwr" style="color: red; font-weight: bolder;" hidden="">ဆ</i>
+            </div>
+        </div>
+        <!-- 确认密码 -->
+        <div class="layui-input-inline">
+            <div class="layui-inline" style="width: 85%">
+                <input type="password" id="rpwd" name="repassword" required=""  lay-verify="required" placeholder="请确认密码" autocomplete="off" class="layui-input" />
+            </div>
+            <!-- 对号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="rpri" style="color: green;font-weight: bolder;" hidden=""></i>
+            </div>
+            <!-- 错号 -->
+            <div class="layui-inline">
+                <i class="layui-icon" id="rpwr" style="color: red; font-weight: bolder;" hidden="">ဆ</i>
+            </div>
+        </div>
+
+
+        <div class="layui-input-inline login-btn" style="width: 85%">
+            <button type="button" lay-submit="" lay-filter="sub" class="layui-btn">注册</button>
+        </div>
+        <hr style="width: 85%" />
+        <p style="width: 85%"><a href="/u/loginpage" class="fl">已有账号？立即登录</a><a href="javascript:;" class="fr">忘记密码？</a></p>
+    </form>
+</div>
+
+<script th:src="@{../static/my_js/register.js}"></script>
+</body>
+</html>

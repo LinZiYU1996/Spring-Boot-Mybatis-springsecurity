@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{../static/css/layui.css}"  type="text/css" />
+    <link rel="stylesheet" th:href="@{../static/css/style.css}"  type="text/css" />
+    <script th:src="@{../static/js/jquery.min.js}"  type="text/javascript"></script>
+    <script th:src="@{../static/js/layui.js}"  type="text/javascript"></script>
+</head>
+<body>
+<div class="login-main">
+    <header class="layui-elip">登录</header>
+
+    <form class="layui-form" >
+
+        <div class="layui-input-inline">
+            <!--坑  name要对应username-->
+            <input type="text" id="username" name="username" required="" lay-verify="required" placeholder="用户名" autocomplete="off"
+                   class="layui-input" />
+        </div>
+        <div class="layui-input-inline">
+            <input type="password" id="password" name="password" required="" lay-verify="required" placeholder="密码" autocomplete="off"
+                   class="layui-input" />
+        </div>
+        <div class="layui-input-inline login-btn">
+            <button id="login_in" lay-submit="" lay-filter="login" class="layui-btn" type="button" >登录</button>
+        </div>
+        <hr/>
+        <!--<div class="layui-input-inline">
+            <button type="button" class="layui-btn layui-btn-primary">QQ登录</button>
+        </div>
+        <div class="layui-input-inline">
+            <button type="button" class="layui-btn layui-btn-normal">微信登录</button>
+        </div>-->
+        <p><a href="/register_page" class="fl">立即注册</a><a href="javascript:;" class="fr">忘记密码？</a></p>
+    </form>
+</div>
+
+<script th:src="@{../static/my_js/login.js}"></script>
+</body>
+</html>

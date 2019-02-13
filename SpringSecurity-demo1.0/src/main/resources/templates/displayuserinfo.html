@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>显示对应用户信息页面</title>
+
+    <link rel="stylesheet" th:href="@{../static/css/layui.css}" />
+    <link rel="stylesheet" th:href="@{../static/css/style.css}" />
+    <script th:src="@{../static/js/jquery.min.js}"></script>
+    <script th:src="@{../static/js/layui.js}"></script>
+</head>
+<body>
+<!--弹出层显示用户信息页面-->
+<div class="layui-row" id="ass" >
+    <div class="layui-col-md10">
+
+
+        <!--layui-from-pane-->
+        <form class="layui-form" action="" style="margin-top:20px"  lay-filter="formTestFilter">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">ID</label>
+                <div class="layui-input-block">
+                    <input type="text" name="id" id="id" required=""
+                           lay-verify="required" autocomplete="off" placeholder="" class="layui-input" readonly=""/>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" id="username" required=""
+                           lay-verify="required" autocomplete="off" placeholder="" class="layui-input" readonly=""/>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input id="password" type="text" name="password"  required=""  lay-verify="required"
+                           autocomplete="off" placeholder="" class="layui-input" readonly=""/>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-block">
+                    <input id="role" type="text" name="role"  required=""  lay-verify="required"
+                           autocomplete="off" placeholder="" class="layui-input" readonly=""/>
+                </div>
+            </div>
+
+
+
+            <!--<div class="layui-form-item" style="margin-top:40px">-->
+                <!--<div class="layui-input-block">-->
+                    <!--<button id="update-btn" type="button" class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="demo11">确认修改</button>-->
+                    <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        </form>
+
+
+    </div>
+</div>
+
+</body>
+</html>
